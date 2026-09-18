@@ -317,15 +317,24 @@ body.theme-luka .timeline-item::after {
 }
 
 body.theme-luka .experience-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
 }
 
 body.theme-luka .institution-logo {
-  width: 52px;
-  height: 52px;
-  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  object-position: center;
+  justify-self: center;
+}
+
+body.theme-luka .institution-logo-wide {
+  width: 108px;
+  height: auto;
+  max-height: 88px;
 }
 
 body.theme-luka .experience-content {
@@ -494,12 +503,19 @@ body.theme-luka strong {
   }
 
   body.theme-luka .experience-item {
+    grid-template-columns: 80px minmax(0, 1fr);
     gap: 12px;
   }
 
   body.theme-luka .institution-logo {
-    width: 44px;
-    height: 44px;
+    width: 68px;
+    height: 68px;
+  }
+
+  body.theme-luka .institution-logo-wide {
+    width: 80px;
+    height: auto;
+    max-height: 68px;
   }
 
   body.theme-luka .visitor-card {
