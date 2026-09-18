@@ -177,6 +177,7 @@ body.theme-luka .image.avatar img {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 6px 24px var(--luka-shadow);
+  object-position: 30% 70%;
 }
 
 body.theme-luka .site-name {
