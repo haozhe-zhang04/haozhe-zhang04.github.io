@@ -225,6 +225,14 @@ body.theme-luka .social-icons a:hover {
   transform: translateY(-2px);
 }
 
+body.theme-luka .social-icon-image {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
 body.theme-luka .content {
   flex: 1;
   min-width: 0;
