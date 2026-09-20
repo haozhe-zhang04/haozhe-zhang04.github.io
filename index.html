@@ -17,7 +17,7 @@
   <script src="https://kit.fontawesome.com/a860a211d3.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="assets/css/font_sans_serif.css">
-  <link rel="stylesheet" href="assets/css/theme-luka.css?v=20260919-3">
+  <link rel="stylesheet" href="assets/css/theme-luka.css?v=20260920-1">
 </head>
 <body class="theme-luka">
   <nav class="top-nav">
@@ -56,6 +56,13 @@
           <a href="https://scholar.google.com/citations?user=Tv1nLVcAAAAJ&hl=en" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
           <a href="https://x.com/HaoZhe1451" title="X (Twitter)" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="https://www.xiaohongshu.com/user/profile/599aca2e82ec397f9a13fa5c" title="Xiaohongshu" aria-label="Xiaohongshu" target="_blank" rel="noopener noreferrer"><img src="assets/img/xiaohongshu-icon.png" alt="" class="social-icon-image"></a>
+        </div>
+
+        <div class="visitor-card">
+          <div class="visitor-card-title">Visitor Map</div>
+          <div class="visitor-card-body" id="visitor-map-container" aria-live="polite">
+            <span id="visitor-map-status">Loading visitor map...</span>
+          </div>
         </div>
 
       </div>
@@ -364,6 +371,47 @@
         document.querySelectorAll('.section').forEach(function(el) {
           el.classList.add('visible');
         });
+      }
+
+      function loadVisitorMap() {
+        const container = document.getElementById('visitor-map-container');
+        const status = document.getElementById('visitor-map-status');
+
+        if (!container || document.getElementById('mapmyvisitors')) {
+          return;
+        }
+
+        const mapScript = document.createElement('script');
+        mapScript.type = 'text/javascript';
+        mapScript.id = 'mapmyvisitors';
+        mapScript.src = 'https://mapmyvisitors.com/map.js?d=CQSwgFA614x24l4G1sM1qCnkbV8IxigATmm5oClUCl0&cl=ffffff&w=a';
+        mapScript.async = true;
+        mapScript.onload = function() {
+          if (status) {
+            status.remove();
+          }
+        };
+        mapScript.onerror = function() {
+          if (status) {
+            status.textContent = 'Visitor map is temporarily unavailable.';
+          }
+        };
+
+        container.appendChild(mapScript);
+      }
+
+      function scheduleVisitorMap() {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadVisitorMap, { timeout: 3000 });
+        } else {
+          window.setTimeout(loadVisitorMap, 0);
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        scheduleVisitorMap();
+      } else {
+        window.addEventListener('load', scheduleVisitorMap, { once: true });
       }
     })();
   </script>

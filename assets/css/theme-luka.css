@@ -233,6 +233,38 @@ body.theme-luka .social-icon-image {
   object-fit: contain;
 }
 
+body.theme-luka .visitor-card {
+  margin: 40px auto 0;
+  width: 240px;
+  padding: 18px 16px;
+  overflow: hidden;
+  border: 1px dashed var(--luka-border);
+  border-radius: 14px;
+  color: var(--luka-secondary);
+  text-align: left;
+}
+
+body.theme-luka .visitor-card-title {
+  margin-bottom: 8px;
+  color: var(--luka-accent);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body.theme-luka .visitor-card-body {
+  min-height: 118px;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+body.theme-luka #visitor-map-status {
+  display: inline-block;
+  padding-top: 44px;
+}
+
 body.theme-luka .content {
   flex: 1;
   min-width: 0;
@@ -526,6 +558,11 @@ body.theme-luka strong {
   body.theme-luka .institution-logo-frame {
     width: 76px;
     height: 76px;
+  }
+
+  body.theme-luka .visitor-card {
+    width: 100%;
+    max-width: 280px;
   }
 
 }
