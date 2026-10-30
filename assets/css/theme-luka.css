@@ -415,6 +415,37 @@ body.theme-luka .publications ol.bibliography li {
   border-left: 3px solid var(--luka-accent);
 }
 
+body.theme-luka .pub-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+body.theme-luka .pub-media {
+  flex: 0 0 220px;
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid var(--luka-border, rgba(127, 127, 127, 0.25));
+  line-height: 0;
+}
+
+body.theme-luka .pub-media img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+body.theme-luka .pub-media:hover img {
+  transform: scale(1.04);
+}
+
+body.theme-luka .pub-content {
+  flex: 1;
+  min-width: 0;
+}
+
 body.theme-luka .pub-content .title {
   margin-bottom: 4px;
   color: var(--luka-text);
@@ -565,6 +596,19 @@ body.theme-luka strong {
     max-width: 280px;
   }
 
+}
+
+@media (max-width: 640px) {
+  body.theme-luka .pub-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  body.theme-luka .pub-media {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 360px;
+  }
 }
 
 @media (max-width: 480px) {
